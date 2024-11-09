@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApp.Controllers;
+namespace Session02.Controllers;
 
 [ApiController]
 [Route("Bye")]
+//[Route("[controller]")]
 public class SalamController : ControllerBase
 {
     [HttpGet]
