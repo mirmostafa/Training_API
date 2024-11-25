@@ -19,6 +19,7 @@ internal class Program
 
         // 4. Resolve the required service
         var app = serviceProvider.GetService<App>();
+        
         app.Run();
     }
 
