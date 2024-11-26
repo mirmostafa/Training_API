@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 using Session05.Application.Interfaces;
+using Session05.Application.Services;
 
 namespace Session05.Controllers;
 
@@ -8,17 +9,17 @@ namespace Session05.Controllers;
 [Route("[controller]")]
 public class NotificationController : ControllerBase
 {
-    private readonly INotificationService _emailService;
+    private readonly INotificationService _notificationService;
 
     // Using in a Controller
-    public NotificationController(INotificationService emailService)
+    public NotificationController(INotificationService notificationService)
     {
-        this._emailService = emailService;
+        this._notificationService = notificationService;
     }
 
-    [HttpPost]
+    [HttpPost("{to}")]
     public void Post(string to)
     {
-        this._emailService.Notify(to, "Hello", "Welcome!");
+        this._notificationService.Notify(to, "Hello", "Welcome!");
     }
 }

@@ -5,7 +5,7 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/Notification": {
+    "/Notification/{to}": {
       "post": {
         "tags": [
           "Notification"
@@ -13,7 +13,8 @@
         "parameters": [
           {
             "name": "to",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
