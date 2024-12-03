@@ -28,6 +28,11 @@ public class ProductService
         return await this._context.Products.ToListAsync();
     }
 
+    public List<Product> GetAll()
+    {
+        return this._context.Products.ToList();
+    }
+
     public async Task<Product?> GetById(int id)
     {
         return await this._context.Products.FindAsync(id);

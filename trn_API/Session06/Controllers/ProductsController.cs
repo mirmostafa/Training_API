@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+
+using Microsoft.AspNetCore.Mvc;
 using Session06.DataSources;
 using Session06.Services;
 
@@ -26,6 +28,14 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> Create(Product product)
     {
         await _service.Insert(product);
+        return Ok();
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> Update(int id,  Product product)
+    {
+        product.Id = id;
+        await _service.Update(product);
         return Ok();
     }
 }

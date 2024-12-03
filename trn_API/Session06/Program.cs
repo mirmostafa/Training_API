@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 
 using Session06.DataSources;
+using Session06.Services;
 
 namespace Session06;
 
@@ -16,7 +17,10 @@ public class Program
         
         builder.Services.AddOpenApi();
 
-        builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+        builder.Services.AddScoped<ProductService>();
 
 
         var app = builder.Build();
