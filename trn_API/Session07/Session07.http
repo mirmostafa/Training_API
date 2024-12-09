@@ -1,0 +1,33 @@
+@Session07_HostAddress = http://localhost:5089
+
+GET {{Session07_HostAddress}}/api/product
+
+###
+GET {{Session07_HostAddress}}/api/product/
+
+###
+GET {{Session07_HostAddress}}/api/product/1
+
+###
+GET {{Session07_HostAddress}}/api/product?page=1&pageSize=5
+
+###
+GET {{Session07_HostAddress}}/api/product?page=1
+
+###
+POST {{Session07_HostAddress}}/api/product
+Content-Type: application/json
+{
+  "Name": "Pen"
+}
+
+###
+POST {{Session07_HostAddress}}/api/product
+Content-Type: application/json
+{
+  "Name": ""
+}
+
+###
+GET {{Session07_HostAddress}}/api/product/2
+
