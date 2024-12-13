@@ -1,0 +1,14 @@
+﻿@Session08_HostAddress = http://localhost:5134
+
+### Get By Id
+@id=0
+GET {{Session08_HostAddress}}/api/product/{{id}}
+
+### Create
+POST {{Session08_HostAddress}}/api/product
+Content-Type: application/json
+
+{
+  "Name": "Pen",
+  "Price": 10
+}
