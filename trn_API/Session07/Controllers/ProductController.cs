@@ -19,6 +19,7 @@ public class ProductController(IProductService service) : ControllerBase
     }
     
     [HttpGet]
+    [HttpGet("all")]
     public async Task<IActionResult> GetAll(int page = 0, int pageSize = 0)
     {
         var result = await this._service.GetAll(page, pageSize);
@@ -29,13 +30,10 @@ public class ProductController(IProductService service) : ControllerBase
     public async Task<IActionResult> GetById(long id)
     {
         var result = await this._service.GetById(id);
-        if (result.IsSuccess)
-        {
-            return this.Ok(result);
-        }
-        else
-        {
-            return result.Data is null ? this.NotFound(result) : this.BadRequest(result);
-        }
+        return result.IsSuccess 
+            ? this.Ok(result) 
+            : result.Data is null 
+                ? this.NotFound(result) 
+                : this.BadRequest(result);
     }
 }

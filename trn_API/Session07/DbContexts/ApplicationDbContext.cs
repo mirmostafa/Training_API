@@ -6,7 +6,12 @@ using Session07.Models;
 
 namespace Session07.DbContexts;
 
-public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
+public class ApplicationDbContext : DbContext
 {
     public DbSet<Product> Products { get; set; }
+
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
+        : base(options)
+    {
+    }
 }

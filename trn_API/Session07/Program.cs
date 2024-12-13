@@ -14,7 +14,8 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("TestDatabase"));
+        builder.Services.AddDbContext<ApplicationDbContext>(options => 
+            options.UseInMemoryDatabase("TestDatabase"));
         builder.Services.AddScoped<IProductService, ProductService>();
 
         builder.Services.AddControllers();

@@ -3,22 +3,19 @@
 GET {{Session07_HostAddress}}/api/product
 
 ###
-GET {{Session07_HostAddress}}/api/product/
-
-###
 GET {{Session07_HostAddress}}/api/product/1
 
 ###
-GET {{Session07_HostAddress}}/api/product?page=1&pageSize=5
+GET {{Session07_HostAddress}}/api/product?page=4&pageSize=5
 
 ###
-GET {{Session07_HostAddress}}/api/product?page=1
+GET {{Session07_HostAddress}}/api/product?page=-2
 
 ###
 POST {{Session07_HostAddress}}/api/product
 Content-Type: application/json
 {
-  "Name": "Pen"
+  "Name": "Pencil"
 }
 
 ###

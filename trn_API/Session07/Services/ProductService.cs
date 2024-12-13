@@ -37,7 +37,11 @@ public sealed class ProductService(ApplicationDbContext dbContext) : IProductSer
     {
         try
         {
-            if (page > 0)
+            if(page< 0)
+            {
+                throw new Exception("Invalid page number");
+            }
+            if (page > 0 && pageSize == 0)
             {
                 pageSize = 5;
             }
@@ -62,6 +66,10 @@ public sealed class ProductService(ApplicationDbContext dbContext) : IProductSer
     {
         try
         {
+            if (id < 0)
+            {
+                throw new Exception("Invalid ID");
+            }
             var query = from product in this._dbContext.Products
                         where product.Id == id
                         select product;
