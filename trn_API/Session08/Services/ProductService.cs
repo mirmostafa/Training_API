@@ -13,12 +13,23 @@ public class ProductService
 
     public void CreateProduct(Product product)
     {
-        _logger.LogDebug("Creating a new product: {@Product}", product);
+        _logger.LogDebug("Creating a new product: " + product);
     }
 
     public Product? GetProductById(int id)
     {
-        _logger.LogWarning("Fetching product with ID: {Id}", id);
+        try
+        {
+            //****
+            _logger.LogDebug("Connection to database");
+            throw new Exception("Cannot connect to database");
+            _logger.LogDebug("Connected to database");
+            /////
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError("Error while getting product by id: "+ ex.Message);
+        }
         return null; // No real operation
     }
 

@@ -10,15 +10,18 @@ namespace Session08.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly ProductService _service;
+    private readonly ILogger<ProductController> _logger;
 
-    public ProductController(ProductService service)
+    public ProductController(ProductService service, ILogger<ProductController> logger)
     {
         _service = service;
+        this._logger = logger;
     }
 
     [HttpPost]
     public IActionResult Create(Product product)
     {
+        _logger.LogDebug("Calling service method.");
         _service.CreateProduct(product);
         return Ok("Product created.");
     }
