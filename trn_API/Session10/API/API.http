@@ -1,0 +1,26 @@
+﻿@API_HostAddress = http://localhost:5198
+
+POST {{API_HostAddress}}/product/
+Content-Type: application/json
+{
+    "name": "Pen",
+    "price": -1
+}
+
+###
+GET {{API_HostAddress}}/product/
+
+###
+GET {{API_HostAddress}}/product/1
+
+###
+PUT {{API_HostAddress}}/product/
+Content-Type: application/json
+{
+    "id": 1,
+    "name": "Pen",
+    "price": 200
+}
+
+###
+DELETE {{API_HostAddress}}/product/1

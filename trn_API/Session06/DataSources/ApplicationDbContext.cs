@@ -13,6 +13,6 @@ public class ApplicationDbContext : DbContext
 public class Product
 {
     public int Id { get; set; }
-    public required string Name { get; set; }
+    public string Name { get; set; }
     public decimal Price { get; set; }
 }
