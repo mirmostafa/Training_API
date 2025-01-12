@@ -15,7 +15,7 @@ public class ProductController(ProductService service) : ControllerBase
     private readonly ProductService _service = service;
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Product>>> GetProducts(CancellationToken cancellationToken)
+    public async Task<ActionResult<IEnumerable<Product>>> jhgldgsdg(CancellationToken cancellationToken)
     {
         var result = await _service.GetProducts(cancellationToken);
         if (result.IsSucceed)

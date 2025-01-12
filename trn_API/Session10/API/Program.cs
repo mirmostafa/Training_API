@@ -3,6 +3,7 @@ using Application.Extensions;
 
 using Scalar.AspNetCore;
 
+
 namespace API;
 
 public class Program
@@ -19,10 +20,14 @@ public class Program
 
 
         // Create configuration using appsettings.json file
-        var configuration = builder.Configuration.AddJsonFile("appsettings.json").Build();
+        //var configuration = builder.Configuration.AddJsonFile("appsettings.json").Build();
 
         // Add application services
-        builder.Services.AddApplicationServices(configuration);
+        builder.Services.AddApplicationServices();
+        
+        //Add support to logging with SERILOG
+        //builder.Host.UseSerilog((context, configuration) =>
+        //    configuration.ReadFrom.Configuration(context.Configuration));
 
         var app = builder.Build();
 
