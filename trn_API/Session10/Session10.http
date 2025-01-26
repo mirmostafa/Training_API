@@ -1,0 +1,8 @@
+﻿@Session10_HostAddress = http://localhost:5022/api
+
+POST {{Session10_HostAddress}}/identity/login
+Content-Type: application/json
+{
+  "username": "test",
+  "password": "password"
+}
