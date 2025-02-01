@@ -1,8 +1,13 @@
-﻿@Session10_HostAddress = http://localhost:5022/api
+﻿@Session10_HostAddress = http://localhost:5143/api/SqlInjectionSample
 
-POST {{Session10_HostAddress}}/identity/login
-Content-Type: application/json
-{
-  "username": "test",
-  "password": "password"
-}
+###
+GET {{Session10_HostAddress}}/Risky/supply
+
+### SELECT * FROM Infra.Module WHERE [name] LIKE '%Supply%'SELECT * FROM [AspNetUsers] --%'
+GET {{Session10_HostAddress}}/Risky/Supply%25%27SELECT%20%2A%20FROM%20%5BAspNetUsers%5D%20--
+
+###
+GET {{Session10_HostAddress}}/Safe/supply
+
+### 
+GET {{Session10_HostAddress}}/Safe/Supply%25%27SELECT%20%2A%20FROM%20%5BAspNetUsers%5D%20--

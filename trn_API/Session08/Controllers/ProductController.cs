@@ -14,7 +14,7 @@ public class ProductController : ControllerBase
 
     public ProductController(ProductService service, ILogger<ProductController> logger)
     {
-        _service = service;
+        this._service = service;
         this._logger = logger;
     }
 

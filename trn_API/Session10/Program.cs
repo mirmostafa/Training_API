@@ -1,28 +1,15 @@
-﻿using Session10.Application.Services;
+var builder = WebApplication.CreateBuilder(args);
 
-namespace Session10;
+// Add services to the container.
 
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
 
-        // Add services to the container.
+var app = builder.Build();
 
-        builder.Services.AddControllers();
+// Configure the HTTP request pipeline.
 
-        builder.Services.AddTransient<JwtService>();
+app.UseAuthorization();
 
-        var app = builder.Build();
+app.MapControllers();
 
-        // Configure the HTTP request pipeline.
-
-        app.UseAuthorization();
-
-
-        app.MapControllers();
-
-        app.Run();
-    }
-}
+app.Run();

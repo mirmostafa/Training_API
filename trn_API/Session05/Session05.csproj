@@ -12,6 +12,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Domain\**" />
+	  <Compile Remove="Infrastructure\**" />
+	  <Content Remove="Domain\**" />
+	  <Content Remove="Infrastructure\**" />
+	  <EmbeddedResource Remove="Domain\**" />
+	  <EmbeddedResource Remove="Infrastructure\**" />
+	  <None Remove="Domain\**" />
+	  <None Remove="Infrastructure\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="MediatR" Version="12.4.1" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.*-*" />
 		<PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="9.0.*-*">
@@ -19,11 +30,6 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="Scalar.AspNetCore" Version="1.2.44" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Domain\" />
-	  <Folder Include="Infrastructure\" />
 	</ItemGroup>
 
 </Project>
