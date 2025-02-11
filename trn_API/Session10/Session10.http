@@ -1,4 +1,4 @@
-﻿@Session10_HostAddress = http://localhost:5143/api/SqlInjectionSample
+﻿@Session10_HostAddress = http://localhost:5143/api
 
 ###
 GET {{Session10_HostAddress}}/Risky/supply
@@ -11,3 +11,15 @@ GET {{Session10_HostAddress}}/Safe/supply
 
 ### 
 GET {{Session10_HostAddress}}/Safe/Supply%25%27SELECT%20%2A%20FROM%20%5BAspNetUsers%5D%20--
+
+
+###
+POST {{Session10_HostAddress}}/identity/login
+Content-Type: application/json
+{
+  "Username": "admin",
+  "Password": "admin"
+}
+
+###
+{{Session10_HostAddress}}/identity/login?Username=admin&Password=admin

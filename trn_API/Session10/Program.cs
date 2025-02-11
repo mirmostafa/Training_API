@@ -1,6 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+
+using Session10.DbContexts;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseInMemoryDatabase("TestDatabase"));
+
 
 builder.Services.AddControllers();
 
