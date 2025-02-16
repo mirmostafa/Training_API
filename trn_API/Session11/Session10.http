@@ -1,8 +1,16 @@
-﻿@Session10_HostAddress = http://localhost:5022/api
+﻿# @env dev
+@Session10_HostAddress = http://localhost:5022/api
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiYWYwNDUyYWYtM2M3My00ZTM2LThmMjAtNWJmMTlmZThjZGYzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTczOTczOTg1NCwiaXNzIjoiTXlBcHAiLCJhdWQiOiJNeVVzZXJzIn0.nTkchmzi9BXK2kxYMCH1rzhp8kld1ZlBWz7q4OQUGWU
 
+### درخواست ورود برای دریافت توکن
 POST {{Session10_HostAddress}}/identity/login
 Content-Type: application/json
+
 {
   "username": "test",
   "password": "password"
 }
+
+### درخواست دریافت داده محافظت‌شده با ارسال توکن در هدر Authorization
+GET {{Session10_HostAddress}}/secured/data
+Authorization: Bearer {{token}}

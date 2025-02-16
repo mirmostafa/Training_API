@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-using Session10.Application.Services;
+using Session11.Application.Services;
 
-namespace Session10.Controllers;
+namespace Session11.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

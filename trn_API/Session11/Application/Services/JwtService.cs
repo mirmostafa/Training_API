@@ -4,11 +4,13 @@ using System.Text;
 
 using Microsoft.IdentityModel.Tokens;
 
-namespace Session10.Application.Services;
+namespace Session11.Application.Services;
 
 public class JwtService
 {
     private const string SecretKey = "ThisIsASecretKeyWith32Chars!!Lorem ipsum dolor sit amet, consetetur sadipscing elitr";
+    private const string Issuer = "MyApp"; // ✅ مقدار Issuer تنظیم شد
+    private const string Audience = "MyUsers"; // ✅ مقدار Audience تنظیم شد
 
     public string GenerateJwtToken(string username)
     {
@@ -21,15 +23,15 @@ public class JwtService
         // تنظیم اطلاعات توکن (Claims)
         var claims = new[]
         {
-            new Claim("username", username), // اضافه کردن نام کاربر به توکن
-            new Claim("role", "user"), // اضافه کردن نقش کاربر به توکن
-            new Claim("expirationDate", DateTime.UtcNow.AddMinutes(30).ToString()) // اضافه کردن تاریخ انقضای توکن
+            new Claim(ClaimTypes.Role, "User") // ✅ نقش کاربر
         };
 
         // ساخت توکن
         var token = new JwtSecurityToken(
+            issuer: Issuer, // ✅ مقدار Issuer اضافه شد
+            audience: Audience, // ✅ مقدار Audience اضافه شد
             claims: claims,
-            expires: DateTime.Now.AddMinutes(30),
+            expires: DateTime.UtcNow.AddMinutes(30),
             signingCredentials: credentials);
 
         // بازگرداندن توکن به‌صورت رشته
