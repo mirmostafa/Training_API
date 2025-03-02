@@ -1,0 +1,27 @@
+﻿@Session12_HostAddress = http://localhost:5184
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzQwOTQxODIwLCJleHAiOjE3NDA5NDU0MjAsImlhdCI6MTc0MDk0MTgyMCwiaXNzIjoiU1JNIEFwcGxpY2F0aW9uIiwiYXVkIjoiU1JNIFVzZXIifQ.6_M15NOkC9h-st_JnPwPhQ9-6MPqrJijRYBLlSQCLaE
+
+###
+POST {{Session12_HostAddress}}/api/Identity/login
+Content-Type: application/json
+{
+    "username": "admin",
+    "password": "password"
+}
+
+### دریافت لیست محصولات (نیاز به توکن)
+GET {{Session12_HostAddress}}/api/Product
+Authorization: Bearer {{TOKEN}}
+
+###
+GET {{Session12_HostAddress}}/api/Product/8
+Authorization: Bearer {{TOKEN}}
+
+### ایجاد محصول جدید (نیاز به توکن مدیر)
+POST {{Session12_HostAddress}}/api/Product
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+{
+    "name": "Smartwatch",
+    "price": 300
+}
