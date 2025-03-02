@@ -1,16 +1,19 @@
 ﻿# @env dev
 @Session10_HostAddress = http://localhost:5022/api
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiYWYwNDUyYWYtM2M3My00ZTM2LThmMjAtNWJmMTlmZThjZGYzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTczOTczOTg1NCwiaXNzIjoiTXlBcHAiLCJhdWQiOiJNeVVzZXJzIn0.nTkchmzi9BXK2kxYMCH1rzhp8kld1ZlBWz7q4OQUGWU
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzQwNDk5MTY1LCJpc3MiOiJNeUFwcCIsImF1ZCI6Ik15VXNlcnMifQ.dfRJgpbO_OpQz5rhII6sXY0O2LP4yi4O9--eKls7c68
 
 ### درخواست ورود برای دریافت توکن
 POST {{Session10_HostAddress}}/identity/login
 Content-Type: application/json
 
 {
-  "username": "test",
+  "username": "test1",
   "password": "password"
 }
 
 ### درخواست دریافت داده محافظت‌شده با ارسال توکن در هدر Authorization
 GET {{Session10_HostAddress}}/secured/data
-Authorization: Bearer {{token}}
+# Authorization: Bearer {{token}}
+
+###
+GET {{Session10_HostAddress}}/secured/data2

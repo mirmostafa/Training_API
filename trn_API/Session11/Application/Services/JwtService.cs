@@ -9,7 +9,7 @@ namespace Session11.Application.Services;
 public class JwtService
 {
     private const string SecretKey = "ThisIsASecretKeyWith32Chars!!Lorem ipsum dolor sit amet, consetetur sadipscing elitr";
-    private const string Issuer = "MyApp"; // ✅ مقدار Issuer تنظیم شد
+    private const string Issuer = "SRM 2.0"; // ✅ مقدار Issuer تنظیم شد
     private const string Audience = "MyUsers"; // ✅ مقدار Audience تنظیم شد
 
     public string GenerateJwtToken(string username)

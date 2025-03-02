@@ -23,7 +23,7 @@ public class Program
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "MyApp",
+                    ValidIssuer = "SRM 2.0",
                     ValidAudience = "MyUsers",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("ThisIsASecretKeyWith32Chars!!Lorem ipsum dolor sit amet, consetetur sadipscing elitr"))
                 };

@@ -1,4 +1,5 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 
@@ -28,12 +29,13 @@ public class IdentityController: ControllerBase
         if (request.Username == "test" && request.Password == "password")
         {
             var token = _jwtService.GenerateJwtToken(request.Username);
-            return Ok(new { Token = token });
+            return this.Ok(new { Token = token });
         }
-
-        return Unauthorized();
+        //return new StatusCodeResult((int)HttpStatusCode.SeeOther);
+        return this.Unauthorized();
     }
 }
+
 
 public class LoginRequest
 {

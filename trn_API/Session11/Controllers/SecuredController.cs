@@ -3,14 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Session11.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-public class SecuredController: ControllerBase
+public class SecuredController: SrmControllerBase
 {
-    [Authorize]
     [HttpGet("data")]
     public IActionResult GetData()
     {
         return Ok("این یک داده محافظت‌شده است که فقط کاربران لاگین‌شده می‌توانند ببینند.");
     }
+
+    [AllowAnonymous]
+    [HttpGet("data2")]
+    public IActionResult GetData2()
+    {
+        return Ok("این یک داده محافظت‌ نشده است که همه کاربران می‌توانند ببینند.");
+    }
+
+
 }
